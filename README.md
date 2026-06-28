@@ -1,46 +1,34 @@
 # Advanced Image Captioning System
 
-## Overview
+A deep learning application that generates natural language captions for images using InceptionV3 and LSTM.
 
-This project generates natural language descriptions for images using:
+## Live Demo
 
-- InceptionV3 for feature extraction
-- LSTM decoder for caption generation
-- Flickr8k dataset
-- Flask web interface
-- Docker deployment
+https://cantilever-av4o.onrender.com
 
 ## Features
 
-- Automatic image caption generation
-- Web-based image upload
-- Deep learning architecture
-- Dockerized deployment
+* Image upload through web interface
+* Automatic image caption generation
+* InceptionV3 feature extraction
+* LSTM-based caption decoder
+* Flask web application
+* Dockerized deployment on Render
+
+## Technologies
+
+* Python
+* TensorFlow
+* Keras
+* Flask
+* Docker
+* Render
 
 ## Dataset
 
 Flickr8k Dataset
 
-- 8091 images
-- 5 captions per image
+## Author
 
-## Model Architecture
+Seema Singh
 
-Image → InceptionV3 → Feature Vector
-
-Caption Prefix → Embedding → LSTM
-
-Feature + LSTM Output → Dense → Next Word
-
-## Technologies
-
-- Python
-- TensorFlow
-- Keras
-- Flask
-- Docker
-
-## Run
-
-```bash
-python app.py
