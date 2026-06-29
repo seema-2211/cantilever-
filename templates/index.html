@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Image Captioning</title>
+</head>
+<body>
+
+<h1>Image Caption Generator</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+```
+<input type="file" name="image" required>
+
+<button type="submit">
+    Generate Caption
+</button>
+```
+
+</form>
+
+{% if image_path %}
+
+<img
+src="/{{ image_path }}"
+width="400">
+
+{% endif %}
+
+{% if caption %}
+
+<h2>Caption:</h2>
+
+<p>{{ caption }}</p>
+
+{% endif %}
+
+</body>
+</html>
+
