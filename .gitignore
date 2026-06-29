@@ -8,6 +8,8 @@ dataset/Flickr8k/
 dataset/features/
 
 *.pkl
+!models/tokenizer.pkl
+
 *.h5
 
 *.zip
