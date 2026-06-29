@@ -1,41 +1,121 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
-    <title>Image Captioning</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Caption Generator</title>
+
+```
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+```
+
 </head>
+
 <body>
 
-<h1>Image Caption Generator</h1>
+<div class="background"></div>
 
-<form method="POST" enctype="multipart/form-data">
+<div class="container">
 
 ```
-<input type="file" name="image" required>
+<div class="hero">
 
-<button type="submit">
-    Generate Caption
-</button>
-```
+    <h1>AI Image Caption Generator</h1>
 
-</form>
+    <p>
+        Upload an image and let our CNN + LSTM model
+        generate a meaningful caption automatically.
+    </p>
+
+</div>
+
+<div class="card">
+
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        <div class="upload-section">
+
+            <label class="upload-box">
+
+                <input type="file"
+                       name="image"
+                       accept="image/*"
+                       required>
+
+                <span>
+                    Click to Upload Image
+                </span>
+
+            </label>
+
+        </div>
+
+        <button type="submit"
+                class="generate-btn">
+
+            Generate Caption
+
+        </button>
+
+    </form>
+
+</div>
 
 {% if image_path %}
 
-<img
-src="/{{ image_path }}"
-width="400">
+<div class="result-card">
+
+    <h2>Uploaded Image</h2>
+
+    <img src="{{ image_path }}"
+         alt="Uploaded Image"
+         class="preview-image">
+
+    <h2>Generated Caption</h2>
+
+    <div class="caption-box">
+
+        {{ caption }}
+
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyCaption()">
+
+        Copy Caption
+
+    </button>
+
+</div>
 
 {% endif %}
+```
 
-{% if caption %}
+</div>
 
-<h2>Caption:</h2>
+<script>
 
-<p>{{ caption }}</p>
+function copyCaption() {
 
-{% endif %}
+    const caption =
+        document.querySelector(".caption-box").innerText;
+
+    navigator.clipboard.writeText(caption);
+
+    alert("Caption copied!");
+
+}
+
+</script>
 
 </body>
 </html>
-
