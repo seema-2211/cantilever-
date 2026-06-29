@@ -25,7 +25,7 @@ def load_descriptions(filename):
 
             caption = clean_caption(caption)
 
-            caption = f"startseq {caption} endseq"
+            caption = f" {caption} "
 
             descriptions.setdefault(
                 image_id,
