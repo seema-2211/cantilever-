@@ -11,7 +11,7 @@ dataset/features/
 
 *.pkl
 *.h5
-*.keras
+
 *.zip
 .DS_Store
 
