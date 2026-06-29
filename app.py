@@ -17,9 +17,7 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "static/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-captions = load_descriptions(
-"dataset/Flickr8k/Flickr8k.token.txt"
-)
+
 tokenizer = pickle.load(
     open("models/tokenizer.pkl", "rb")
 )
