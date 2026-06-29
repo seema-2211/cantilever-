@@ -23,7 +23,7 @@ tokenizer = pickle.load(
 )
 vocab_size = len(tokenizer.word_index) + 1
 
-max_len = 23
+max_len = 34
 
 model = build_model(
 vocab_size,
