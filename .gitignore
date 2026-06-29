@@ -1,5 +1,3 @@
-
-
 __pycache__/
 *.pyc
 
@@ -19,6 +17,8 @@ dataset/features/*.pkl
 
 *.h5
 *.keras
+
+!models/image_captioning_model.keras
 
 .ipynb_checkpoints/.
 
