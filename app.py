@@ -1,13 +1,12 @@
 from flask import Flask, render_template, request
 import os
+import pickle
 
 from tensorflow.keras.applications.inception_v3 import InceptionV3
 from tensorflow.keras.models import Model
 
 from models.predict_caption import extract_feature, generate_caption
-from models.load_captions import load_descriptions
-from models.tokenizer_builder import create_tokenizer
-from models.max_length import max_length
+
 from models.caption_model import build_model
 from tensorflow.keras.models import load_model
 
@@ -21,11 +20,12 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 captions = load_descriptions(
 "dataset/Flickr8k/Flickr8k.token.txt"
 )
-
-tokenizer = create_tokenizer(captions)
-
+tokenizer = pickle.load(
+    open("models/tokenizer.pkl", "rb")
+)
 vocab_size = len(tokenizer.word_index) + 1
-max_len = max_length(captions)
+
+max_len = 23
 
 model = build_model(
 vocab_size,
