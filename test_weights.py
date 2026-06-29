@@ -25,7 +25,7 @@ model = build_model(vocab_size, max_len)
 print("Loading weights...")
 
 model.load_weights(
-    "models/image_captioning_model.h5"
+    "models/image_captioning_model.keras"
 )
 
 print("SUCCESS: Weights loaded!")

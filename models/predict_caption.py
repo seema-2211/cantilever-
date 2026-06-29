@@ -30,29 +30,20 @@ def generate_caption(model, tokenizer, image_feature, max_length):
     in_text = "startseq"
 
     for i in range(max_length):
-
-        print("Current text:", in_text)
-
         sequence = tokenizer.texts_to_sequences([in_text])[0]
 
         sequence = pad_sequences(
             [sequence],
-            maxlen=max_length
+            maxlen=max_length,
+            padding="post",
+            truncating="post"
         )
 
-        yhat = model.predict(
-            [image_feature, sequence],
-            verbose=0
-        )
+        yhat = model.predict([image_feature, sequence], verbose=0)
 
-        yhat = np.argmax(yhat)
-
-        print("Predicted index:", yhat)
+        yhat = np.argmax(yhat[0])
 
         word = tokenizer.index_word.get(yhat)
-
-        print("Predicted word:", word)
-
         if word is None:
             break
 
